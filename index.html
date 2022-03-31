@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // const divDOM = document.createElement('div');
+      // divDOM.id = 'container';
+
+      // const h1DOM = document.createElement('h1');
+      // h1DOM.innerText = 'Welcome to React JS';
+      // h1DOM.style = 'color:blue; font-size:20px';
+
+      // const pDOM = document.createElement('p');
+      // pDOM.innerText = 'Chao mung den voi khoa hoc React JS cua F8';
+      // pDOM.style = 'color:green; font-size: 15px';
+
+      // divDOM.appendChild(h1DOM);
+      // divDOM.appendChild(pDOM);
+      // document.body.appendChild(divDOM);
+
+      const divReact = React.createElement(
+        "div",
+        { id: "container" },
+        React.createElement("h1", {}, "Welcome to React JS"),
+        React.createElement(
+          "p",
+          {},
+          "Chao mung den voi khoa hoc React JS cua F8"
+        )
+      );
+
+      const div2React = React.createElement(
+        "div",
+        null,
+        (h1React = React.createElement(
+          "h1",
+          { className: "header" },
+          "Bai Tap F8"
+        )),
+        (pReact = React.createElement(
+          "p",
+          { className: "para" },
+          "lam the h1 vs p trong React-DOM"
+        ))
+      );
+
+      // console.dir(divDOM);
+      console.log(divReact);
+
+      // get root
+      let root = document.getElementById("root");
+
+      ReactDOM.render(divReact, root);
+
+      let container = document.getElementById("container");
+      let child = document.createElement("div");
+      child.id = "child";
+      container.appendChild(child);
+      ReactDOM.render(div2React, child); 
+    </script>
+  </body>
+</html>

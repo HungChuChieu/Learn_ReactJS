@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function PostItem(props) {
+          if (typeof props.myFunc === 'function' )
+            props.myFunc(Math.random(1) );
+        return (
+          <div className="Wrapper">
+            <img src={props.images} alt={props.title} width="300px" />
+            <h2 className="title">{props.title}</h2>
+            <p className="content1">{props.content}</p>
+            <p className="content2"></p>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <div>
+            <PostItem
+              images="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b634151fbbb.png"
+              title="1 Kiến Thức Nhập Môn IT"
+              content=" 1 Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên
+              xem các videos tại khóa này trước nhé."
+              published="1 Để theo ngành IT - Phần mềm cần rèn luyện những kỹ năng nào? Bạn
+              đã có sẵn tố chất phù hợp với ngành chưa? Cùng thăm quan các công
+              ty IT và tìm hiểu về văn hóa, tác phong làm việc của ngành này nhé
+              các bạn."
+              myFunc = {(value)=>{
+                console.log(`random :${value}`);
+              }}
+            />
+            <PostItem
+              images="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b634151fbbb.png"
+              title="2 Kiến Thức Nhập Môn IT"
+              content=" 2 Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên
+              xem các videos tại khóa này trước nhé."
+              published="2 Để theo ngành IT - Phần mềm cần rèn luyện những kỹ năng nào? Bạn
+              đã có sẵn tố chất phù hợp với ngành chưa? Cùng thăm quan các công
+              ty IT và tìm hiểu về văn hóa, tác phong làm việc của ngành này nhé
+              các bạn."
+            />
+            <PostItem
+              images="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b634151fbbb.png"
+              title="3 Kiến Thức Nhập Môn IT"
+              content=" 3 Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên
+              xem các videos tại khóa này trước nhé."
+              published=" 3 Để theo ngành IT - Phần mềm cần rèn luyện những kỹ năng nào? Bạn
+              đã có sẵn tố chất phù hợp với ngành chưa? Cùng thăm quan các công
+              ty IT và tìm hiểu về văn hóa, tác phong làm việc của ngành này nhé
+              các bạn."
+            />
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
